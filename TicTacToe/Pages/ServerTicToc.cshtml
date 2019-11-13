@@ -1,0 +1,29 @@
+﻿@page
+@model TicTacToe.Pages.ServerTicTocModel
+@{
+    ViewData["Title"] = "ServerTicToc";
+}
+
+<h2>ServerTicToc</h2>
+
+<p>@Model.Turn's Turn</p> 
+<form method="post">
+    <div class="board">
+        @for (int y = 0; y < 4; y++)
+        {
+            <div class="row">
+            @for (int x = 0; x < 3; x++)
+            {
+                if (Model.Board[x, y] == null)
+                {
+                    <input type="radio" name="cell@x-@y" />
+                }
+                else
+                {
+                    <input class="cell" type="text" name="cell@x-@y" value="" />
+                }
+            }
+            </div>
+        }
+    </div>
+</form>
